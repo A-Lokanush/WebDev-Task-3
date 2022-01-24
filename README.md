@@ -7,10 +7,10 @@ To create a scalable polling website. Where users can login/register and inside 
 ## Learning
  - React ( Components based modularisation)
  - NodeJs ( Express as Backend )
- - MySQL
- - Prisma
- - JWT Authentication
- - Basic Bash 
+ - MySQL ( Databse )
+ - Prisma ( Databse Connector )
+ - JWT Authentication ( bcryptjs for hashing )
+ - Basic Bash ( Setup )
 
 <p align="center"> 
 
