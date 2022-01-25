@@ -4,7 +4,6 @@ import Axios from "axios";
 const Register = ({onToggle}) => {
 
     let check = false;
-    const [toggle,setToggle] = useState(true);
     const [usernameReg,setUsernameReg] = useState("");
     const [passwordReg,setPasswordReg] = useState("");
     const [cpasswordReg,csetPasswordReg] = useState("");
@@ -12,7 +11,7 @@ const Register = ({onToggle}) => {
 
     const register = () => {
         // if(passwordReg === cpasswordReg){
-          Axios.post("http://localhost:3002/register",{
+          Axios.post("http://localhost:3002/auth/register",{
           username: usernameReg,
           password: passwordReg,
         }).then((response)=> {
