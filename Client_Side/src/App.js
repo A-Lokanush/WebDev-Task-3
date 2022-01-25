@@ -14,14 +14,10 @@ function App() {
  
   const[user,setUser] = useState({name:"",password:""});
   const [error,setError] = useState("");
-  const [toggle, setToggle] = useState(true);
-  const [username,setUsername] = useState("");
-  const [password,setPassword] = useState("");
-
   
   const loginApp = details => {
     console.log(details);
-    Axios.post("http://localhost:3002/login",{
+    Axios.post("http://localhost:3002/auth/login",{
       username: details.name,
       password: details.password,
     }).then((response)=> {
@@ -53,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      {(user.name!="") ? (
+      {(user.name!=="") ? (
         <Main onLogout={logoutApp} name={user.name} password={user.password} /> 
        ):( <Login Login={loginApp} error={error}/>)
       }
