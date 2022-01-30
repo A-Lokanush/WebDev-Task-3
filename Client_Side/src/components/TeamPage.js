@@ -72,7 +72,7 @@ const TeamPage = ({
   const [option, setOption] = useState("");
   const pollresults = (detail) => {
     console.log("before pollresults", detail.pollname);
-    Axios.post("http://localhost:3002/result", {
+    Axios.post("http://localhost:3002/poll/result", {
       pollname: detail.pollname,
     }).then((response) => {
       console.log("response", response.data.result);
@@ -86,7 +86,7 @@ const TeamPage = ({
 ////////
 
   const getTeamMemberInfo = () => {
-    Axios.post("http://localhost:3002/teamMember",{
+    Axios.post("http://localhost:3002/team/teamMember",{
       teamid:tid,
     }).then((response) => {
       console.log(response)
@@ -96,7 +96,7 @@ const TeamPage = ({
   }
 
   const isPolled = () => {
-    Axios.post("http://localhost:3002/pollCheck", {
+    Axios.post("http://localhost:3002/poll/pollCheck", {
       username: name,
       password: password,
       teamid: tid,
@@ -114,7 +114,7 @@ const TeamPage = ({
 
   const endedPoll = (detail) => {
     console.log("ended poll detail",detail);
-        Axios.post("http://localhost:3002/ended",{
+        Axios.post("http://localhost:3002/poll/ended",{
         pollname:detail.pollname,
         ended:"ended",
       }).then((response) => {
@@ -132,7 +132,7 @@ const TeamPage = ({
   const abtPollpage = (detail) => {
     console.log(detail);
     console.log(pollInfo);
-    Axios.post("http://localhost:3002/pollCheck", {
+    Axios.post("http://localhost:3002/poll/pollCheck", {
       username: name,
       password: password,
       teamid: tid,

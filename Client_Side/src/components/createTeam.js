@@ -13,7 +13,7 @@ const CreateTeam = ({name,password,onCreate,onReload}) => {
             TeamID += letters[Math.floor(Math.random() *86)];
           }
           console.log("TeamID",TeamID);
-          Axios.post("http://localhost:3002/teamlist",{
+          Axios.post("http://localhost:3002/team/teamlist",{
           username: name,
           password: password, 
           teamname: teamInfo.tname,

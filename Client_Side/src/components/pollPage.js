@@ -28,7 +28,7 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
     
     const vote = () => {
         console.log("working...",selectedOption)
-        Axios.post("http://localhost:3002/polling",{
+        Axios.post("http://localhost:3002/poll/polling",{
           username: name,
           password: password,
           teamname: PollInfo.teamname,
@@ -42,7 +42,7 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
     }
     const pollAdd = () => {
         console.log("In poll ADd")
-        Axios.post("http://localhost:3002/pollAdd",{
+        Axios.post("http://localhost:3002/poll/pollAdd",{
           username: name,
           password: password,
           teamid:tid,
@@ -55,7 +55,7 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
         onBack()
     }
     const pollCheck = () => {
-        Axios.post("http://localhost:3002/pollCheck",{
+        Axios.post("http://localhost:3002/poll/pollCheck",{
           username: name,
           password: password,
           teamid: tid,

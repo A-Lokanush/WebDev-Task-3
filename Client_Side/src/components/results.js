@@ -31,7 +31,7 @@ const Results = ({ onBack, PollInfo, admin, end ,option,qop,op,oop}) => {
   const ENDPOLL = () => {
     console.log("ENDED");
     setEnded(true);
-    Axios.post("http://localhost:3002/endpoll", {
+    Axios.post("http://localhost:3002/poll/endpoll", {
       pollname: PollInfo.pollname,
       ended: "ended",
     });

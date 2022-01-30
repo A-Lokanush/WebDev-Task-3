@@ -2,7 +2,6 @@ import "./App.css";
 import { useState } from "react";
 import React from 'react'
 import Axios from "axios";
-
 import Login from './components/login';
 import Main from "./components/main";
 
@@ -17,7 +16,7 @@ function App() {
   
   const loginApp = details => {
     console.log(details);
-    Axios.post("http://localhost:3002/auth/login",{
+    Axios.post( "http://localhost:3002/auth/login",{
       username: details.name,
       password: details.password,
     }).then((response)=> {

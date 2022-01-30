@@ -14,7 +14,7 @@ const CreatePolls = ({onSubmit,name,password,teamData,ttname,tdes,onReload,tid,a
             pollID += letters[Math.floor(Math.random() *86)];
           }
         console.log(" before axios create poll",pollname,question,options[0],options[1],options[2])
-            Axios.post("http://localhost:3002/polllist",{
+            Axios.post("http://localhost:3002/poll/polllist",{
                 pollname: pollname,
                 question: question,
                 option0: options[0],

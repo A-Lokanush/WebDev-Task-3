@@ -6,7 +6,7 @@ const JoinTeam = ({name,password,onReload,onJoin,onBack}) => {
     //to register the new  team in database and 
     
     const addJoinTeam = (tn,td)=> {
-      Axios.post("http://localhost:3002/teamlist",{
+      Axios.post("http://localhost:3002/team/teamlist",{
         username:name,
         password:password,
         teamname:tn,
@@ -20,7 +20,7 @@ const JoinTeam = ({name,password,onReload,onJoin,onBack}) => {
       onJoin()
     }
     const jointeam = () => {
-          Axios.post("http://localhost:3002/jointeamlist",{
+          Axios.post("http://localhost:3002/team/jointeamlist",{
           teamid: joinInfo,
         }).then((response)=> {
           addJoinTeam(response.data.result[0].teamname,response.data.result[0].teamdes)

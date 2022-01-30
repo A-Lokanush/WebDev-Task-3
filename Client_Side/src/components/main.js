@@ -19,7 +19,7 @@ const Main = ({onLogout,name,password}) => {
     const [admin,setAdmin]=useState("");
     
     const reload = () => {
-        Axios.post("http://localhost:3002/myteams",{
+        Axios.post("http://localhost:3002/team/myteams",{
         username: name,
         password: password,
       }).then((response) => {
@@ -32,7 +32,7 @@ const Main = ({onLogout,name,password}) => {
 
     const onPress = (details) => {
       console.log("details check",details);
-      Axios.post("http://localhost:3002/mypolls", {
+      Axios.post("http://localhost:3002/poll/mypolls", {
         teamid: details.teamid,
       }).then((response) => {
         setPollList(response.data.result);
@@ -46,7 +46,7 @@ const Main = ({onLogout,name,password}) => {
     };
     const onPress2 = (ttname,tdes,tid,admin) => {
       //console.log("details check",details);
-      Axios.post("http://localhost:3002/mypolls", {
+      Axios.post("http://localhost:3002/poll/mypolls", {
         teamid: tid,
       }).then((response) => {
         //setPollList(response.data.result);
