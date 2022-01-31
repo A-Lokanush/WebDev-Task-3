@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
-import poll from './poll';
 import Axios from "axios";
 
-const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
+const PollPage = ({PollInfo,onBack,tokens,tid,isPolled}) => {
 
     const [pollingOptions,setPollingOption]=useState([PollInfo.option0,PollInfo.option1,PollInfo.option2,PollInfo.option3,PollInfo.option4,PollInfo.option5,PollInfo.option6,PollInfo.option7,PollInfo.option8,PollInfo.option9])
     const [polled,setPolled] = useState(true);
@@ -12,8 +11,7 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
         //
         if(pollOption){
         return (
-          <label className="pollingOptionss" onClick={()=>{setSelectedoption(pollOption)
-          console.log("/\/",selectedOption)}} >
+          <label className="pollingOptionss" onClick={()=>{setSelectedoption(pollOption)}} >
               <label className="radio-btn"><span className="checker"></span>
               <input
               type="radio" value={pollOption} name="clickedOption" style={{ paddingLeft: "1%" }}/>
@@ -25,30 +23,24 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
     }
     }
 
-    
-    const vote = () => {
-        console.log("working...",selectedOption)
-        Axios.post("http://localhost:3002/poll/polling",{
-          username: name,
-          password: password,
-          teamname: PollInfo.teamname,
-          teamdes: PollInfo.teamdes,
-          pollname: PollInfo.pollname,
-          selectedoption: selectedOption
-        }).then((response)=> {
-          console.log(response)
-        })
-        onBack()
+    const makeId = () => {
+      //generate a random string from the
+      //set of alphanumeric characters
+      let text = "";
+      const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      for (let i = 0; i < 10; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
     }
+    
     const pollAdd = () => {
         console.log("In poll ADd")
         Axios.post("http://localhost:3002/poll/pollAdd",{
-          username: name,
-          password: password,
+          accessToken: tokens.at,
           teamid:tid,
           pollname: PollInfo.pollname,
           selectedoption: selectedOption,
-          userpollid:name+PollInfo.pollname,
+          userpollid:makeId(),
         }).then((response)=> {
           console.log(response)
         })
@@ -56,8 +48,7 @@ const PollPage = ({PollInfo,onBack,name,password,tid,isPolled}) => {
     }
     const pollCheck = () => {
         Axios.post("http://localhost:3002/poll/pollCheck",{
-          username: name,
-          password: password,
+          accessToken: tokens.at,
           teamid: tid,
           pollname: PollInfo.pollname,
         }).then((response)=> {

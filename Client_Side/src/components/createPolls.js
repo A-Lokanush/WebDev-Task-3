@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Axios from "axios";
 
-const CreatePolls = ({onSubmit,name,password,teamData,ttname,tdes,onReload,tid,admin}) => {
+const CreatePolls = ({onSubmit,ttname,tid}) => {
 
     const [pollname,setPollname] = useState("");
     const [question,setQuestion] = useState("")

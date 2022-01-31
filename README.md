@@ -1,26 +1,41 @@
 # PollBooth
 This is the first fullstack scalable application I have built hence, the goals are pretty straight forward which is to learn and get some experience out of it.
 
+### link
+<!-- Replace actual url here -->
+https://www.youtube.com
+
 ## Objective
 To create a scalable polling website. Where users can login/register and inside can create team who defacto becomes the administrator of the team and thus has the ability to to create polls in the specific team. People can join the team if they enter the team joining id, which is shared by the administrator. Admin can end the poll, manage team and thus has all authority with regard to hte team.
 
-## Setup
+## Setup Locally
 ````bash
 chmod 777 setup.sh && ./setup.sh
 ````
+## Running Locally
+To run the client side
+````bash
+chmod 777 runc.sh && ./runc.sh
+````
+To run the server side
+````bash
+chmod 777 runs.sh && ./runs.sh
+````
+
+Note : Run them on separate terminals
 
 ## Learning
  - React ( Components based modularisation)
  - NodeJs ( Express as Backend )
  - MySQL ( Databse )
- - Prisma ( Databse Connector )
  - JWT Authentication ( bcryptjs for hashing )
- - Basic Bash ( Setup )
+ - Basic Bash ( For local setup )
+ - Deployment of backend on Heroku and frontend on Netlify
 
 <p align="center"> 
 
 ## Tech Stack
-<br/>
+
 
 <p align="left">
 
@@ -29,7 +44,9 @@ chmod 777 setup.sh && ./setup.sh
  ![Nodejs Badge](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express Badge]( https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
  </br>
 ![MySQL Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+ </br>
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 </p>
 
 ## Tools Used

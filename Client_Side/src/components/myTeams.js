@@ -1,8 +1,7 @@
 import React,{useState} from 'react';
 import Teams from "./team";
-import Axios from "axios";
 
-const MyTeams = ({name,password,onReload,teamData,onPress}) => {
+const MyTeams = ({onReload,teamData,onPress}) => {
 
     const [myTeams,setMyTeam] = useState(true);
     var first = true;
@@ -17,7 +16,7 @@ const MyTeams = ({name,password,onReload,teamData,onPress}) => {
         {myTeams ? (
           <div className="pollOptions">
             <h5 className="myTeams">My Teams</h5>
-            <span class="material-icons-two-tone plusTeam" onClick={change}>
+            <span className="material-icons-two-tone plusTeam" onClick={change}>
               add
             </span>
           </div>
@@ -25,7 +24,7 @@ const MyTeams = ({name,password,onReload,teamData,onPress}) => {
           <div>
             <div className="pollOptions">
               <h5 className="myTeams">My Teams</h5>
-              <span class="material-icons-two-tone plusTeam" onClick={change}>
+              <span className="material-icons-two-tone plusTeam" onClick={change}>
                 remove
               </span>
             </div>

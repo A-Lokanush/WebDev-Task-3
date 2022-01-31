@@ -1,18 +1,28 @@
 import React,{useState} from 'react'
 import Axios from "axios";
 
-const JoinTeam = ({name,password,onReload,onJoin,onBack}) => {
+const JoinTeam = ({tokens,onReload,onJoin,onBack}) => {
     const [joinInfo,setJoinInfo] = useState("")
     //to register the new  team in database and 
+
+    //random string generator for team id
+    const makeId = () => {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 10; i++)
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;  
+    }
+
     
     const addJoinTeam = (tn,td)=> {
+      const userTeamID = makeId();
       Axios.post("http://localhost:3002/team/teamlist",{
-        username:name,
-        password:password,
+        accessToken:tokens.at,
         teamname:tn,
         teamdes:td,
         teamid: joinInfo,
-        userteamid:name+td,
+        userteamid:userTeamID,
       }).then((response)=> {
           console.log("victory")
       })

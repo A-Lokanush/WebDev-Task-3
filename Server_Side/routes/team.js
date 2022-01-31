@@ -1,19 +1,10 @@
 const router = require("express").Router();
-const mysql = require("mysql2");
-const dotenv = require("dotenv");
+const db = require("../config/db");
+const verify = require("../middlewares/verify");
 
-dotenv.config();
-
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-});
-
-router.post("/teamlist", (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
+router.post("/teamlist",verify, (req, res) => {
+  let username = req.decoded.username;
+  let password = req.decoded.password;
   let teamname = req.body.teamname;
   let teamdes = req.body.teamdes;
   let teamid = req.body.teamid;
@@ -46,9 +37,9 @@ router.post("/jointeamlist", (req, res) => {
   );
 });
 
-router.post("/myteams", (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
+router.post("/myteams",verify, (req, res) => {
+  let username = req.decoded.username;
+  let password = req.decoded.password;
   console.log("myteams", username, password);
   db.query(
     "SELECT * FROM teamList WHERE username = ? AND password = ?",

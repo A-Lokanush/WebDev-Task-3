@@ -1,15 +1,6 @@
 const router = require("express").Router();
-const mysql = require("mysql2");
-const dotenv = require("dotenv");
-
-dotenv.config();
-
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-});
+const db = require("../config/db");
+const verify = require("../middlewares/verify");
 
 router.post("/ended", (req, res) => {
   let pollname = req.body.pollname;
@@ -120,9 +111,9 @@ router.post("/polllist", (req, res) => {
   );
 });
 
-router.post("/pollAdd", (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
+router.post("/pollAdd",verify, (req, res) => {
+  let username = req.decoded.username;
+  let password = req.decoded.password;
   let teamid = req.body.teamid;
   let pollname = req.body.pollname;
   let selectedoption = req.body.selectedoption;
@@ -155,9 +146,9 @@ router.post("/polling", (req, res) => {
   );
 });
 
-router.post("/pollCheck", (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
+router.post("/pollCheck",verify, (req, res) => {
+  let username = req.decoded.username;
+  let password = req.decoded.password;
   let teamid = req.body.teamid;
   let pollname = req.body.pollname;
 

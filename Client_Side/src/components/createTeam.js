@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Axios from "axios";
 
-const CreateTeam = ({name,password,onCreate,onReload}) => {
+const CreateTeam = ({tokens,onCreate,onReload}) => {
 
     const [teamInfo,setTeamInfo] = useState({tname:"",tdescription:"",teamid:""})
     //to register the new  team in database and 
@@ -12,15 +12,21 @@ const CreateTeam = ({name,password,onCreate,onReload}) => {
           for (let i = 0; i < 49; i++) {
             TeamID += letters[Math.floor(Math.random() *86)];
           }
-          console.log("TeamID",TeamID);
+          const makeId = () => {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < 10; i++)
+              text += possible.charAt(Math.floor(Math.random() * possible.length));
+            return text;  
+          } 
+          const userTeamId = makeId();
           Axios.post("http://localhost:3002/team/teamlist",{
-          username: name,
-          password: password, 
+          accessToken: tokens.at,
           teamname: teamInfo.tname,
           teamdes:  teamInfo.tdescription,
           teamid: TeamID,
           admin:"Admin",
-          userteamid:name + TeamID,
+          userteamid:userTeamId,
         }).then((response)=> {
           
           console.log(response)
