@@ -1,3 +1,5 @@
 node_modules/
 
 Server_Side/.env
+
+Client_Side/.env

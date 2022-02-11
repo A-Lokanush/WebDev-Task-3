@@ -12,7 +12,7 @@ const InviteMember = ({ ttname, tdes, tid ,onBack}) => {
         </div>
         <div className="team-members">
           {/* <span class="material-icons-two-tone membersicon">group</span> */}
-          <span class="material-icons-two-tone addmember" >person_add</span>
+          <span className="material-icons-two-tone addmember" >person_add</span>
         </div>
         {/* Add members and designation and option to removeor send invite */}
       </div>

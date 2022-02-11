@@ -5,27 +5,25 @@ import Teampage from "./TeamPage"
 import Default from "./Default"
 import JoinTeam from "./joinTeam"
 
-const ContentPart = ({onJoin,createTeam,name,password,admin,tid,onReload,teamData,disTeam,pollList,onLoad,ttname,tdes,onCreate,joinTeam,onBack}) => {
+const ContentPart = ({onJoin,createTeam,tokens,admin,tid,onPress,onReload,teamData,disTeam,pollList,onLoad,ttname,tdes,onCreate,joinTeam,onBack}) => {
 
     const [createPoll,setCreatePoll] = useState(false);
-    console.log("contentPart",ttname,tdes)
     const onCreatePoll = () =>{
         setCreatePoll(!createPoll)
         onReload()
-        
     }
-    
-    
+    const onsSubmitCreatePoll = () =>{
+      setCreatePoll(!createPoll)
+      onPress({tid})
+  }
     return (
       <div className="contentPart">
-        {joinTeam ? (
+        {/* {joinTeam ? (
           createTeam ? (
             createPoll ? (
               <CreatePolls
-                onSubmit={() => setCreatePoll(!createPoll)}
-                name={name}
+                onSubmit={onsSubmitCreatePoll}
                 tid={tid}
-                password={password}
                 teamData={teamData}
                 ttname={ttname}
                 tdes={tdes}
@@ -40,32 +38,31 @@ const ContentPart = ({onJoin,createTeam,name,password,admin,tid,onReload,teamDat
                 pollList={pollList}
                 ttname={ttname}
                 tdes={tdes}
-                name={name}
                 tid={tid}
-                password={password}
+                tokens={tokens}
                 admin={admin}
               />
             )
           ) : (
             <CreateTeam
-              name={name}
-              password={password}
               onCreate={onCreate}
               onReload={onReload}
               ttname={ttname}
+              tokens={tokens}
               tdes={tdes}
             />
           )
         ) : (
           <JoinTeam
-            name={name}
-            password={password}
             onCreate={onCreate}
             onReload={onReload}
             onBack={onBack}
+            tokens={tokens}
             onJoin={onJoin}
           />
-        )}
+        )} */}
+              <Default />
+
       </div>
     );
 }
