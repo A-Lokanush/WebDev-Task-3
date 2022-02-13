@@ -30,7 +30,6 @@ Note : Run them on separate terminals
  - MySQL ( Databse )
  - JWT Authentication ( bcryptjs for hashing )
  - Basic Bash ( For local setup )
- - Deployment of backend on Heroku and frontend on Netlify
 
 <p align="center"> 
 
@@ -44,9 +43,9 @@ Note : Run them on separate terminals
  ![Nodejs Badge](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express Badge]( https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
  </br>
 ![MySQL Badge](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
- </br>
+ <!-- </br>
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) -->
 </p>
 
 ## Tools Used
