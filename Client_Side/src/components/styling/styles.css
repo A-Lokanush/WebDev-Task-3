@@ -442,6 +442,7 @@ h5{
 .box1{
     position: relative;
     border: 3px solid rgba(225, 0, 255, 0.9);
+    color: rgba(225, 0, 255, 0.9);
     height: 100%;
     width:59%;
     margin-right: 0.5%;
@@ -452,6 +453,7 @@ h5{
 .box3{
     position: relative;
     border: 3px solid rgba(255, 0, 0, 0.9);
+    color: rgba(255, 0, 0, 0.9);
     height: 100%;
     width:39%;
     margin-left: 0.5%;
@@ -467,7 +469,10 @@ h5{
 }
 .box2{
     position: relative;
+    display: flex !important;
+    flex-direction: column;
     border: 3px solid rgb(0, 217, 255,0.9);
+    color: rgb(0, 217, 255,0.9);
     height: 100%;
     width:39%;
     margin-right: 0.5%;

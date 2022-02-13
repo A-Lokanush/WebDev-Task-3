@@ -18,7 +18,7 @@ const ContentPart = ({onJoin,createTeam,tokens,admin,tid,onPress,onReload,teamDa
   }
     return (
       <div className="contentPart">
-        {/* {joinTeam ? (
+        {joinTeam ? (
           createTeam ? (
             createPoll ? (
               <CreatePolls
@@ -60,9 +60,7 @@ const ContentPart = ({onJoin,createTeam,tokens,admin,tid,onPress,onReload,teamDa
             tokens={tokens}
             onJoin={onJoin}
           />
-        )} */}
-              <Default />
-
+        )}  
       </div>
     );
 }
