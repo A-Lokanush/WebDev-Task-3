@@ -1,10 +1,6 @@
 # PollBooth
 This is the first fullstack scalable application I have built hence, the goals are pretty straight forward which is to learn and get some experience out of it.
 
-### link
-<!-- Replace actual url here -->
-https://www.youtube.com
-
 ## Objective
 To create a scalable polling website. Where users can login/register and inside can create team who defacto becomes the administrator of the team and thus has the ability to to create polls in the specific team. People can join the team if they enter the team joining id, which is shared by the administrator. Admin can end the poll, manage team and thus has all authority with regard to hte team.
 
