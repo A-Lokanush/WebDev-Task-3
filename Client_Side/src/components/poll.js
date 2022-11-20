@@ -1,4 +1,3 @@
-import Axios from 'axios'
 const poll = ({poll,ond,onclick,name,password,tid,isPolled}) => {
 
     const passData = () => {
@@ -6,7 +5,7 @@ const poll = ({poll,ond,onclick,name,password,tid,isPolled}) => {
     }
 
     // const Polled = () => {
-    //     Axios.post("http://localhost:3002/pollCheck",{
+    //     Axios.post(config.url + config.port + "/pollCheck",{
     //         username: name,
     //         password: password,
     //         teamid: tid,

@@ -4,10 +4,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const db = mysql.createConnection({
-  user: "root",
+  socketPath: "/run/mysqld/mysqld.sock",
   host: "localhost",
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
+  port: "3306",
+  user: "root",
+  password: "#Pammal2002.",
+  database: "pollbooth",
 });
 
 module.exports = db;

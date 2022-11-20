@@ -1,3 +1,4 @@
+import config from "../config/config";
 import React,{useState} from 'react'
 import Axios from "axios";
 
@@ -18,7 +19,7 @@ const Main = ({onLogout,tokens}) => {
     const [admin,setAdmin]=useState("");
     
     const reload = () => {
-        Axios.post("http://localhost:3002/team/myteams",{
+        Axios.post(config.url + config.port + "/team/myteams",{
         accessToken: tokens.at,
       }).then((response) => {
         if(response.message !== "No Token Provided" || response.message !== "Invalid Token")
@@ -31,7 +32,7 @@ const Main = ({onLogout,tokens}) => {
 
     const onPress = (details) => {
       console.log("details check",details);
-      Axios.post("http://localhost:3002/poll/mypolls", {
+      Axios.post(config.url + config.port + "/poll/mypolls", {
         teamid: details.teamid,
       }).then((response) => {
         setPollList(response.data.result);

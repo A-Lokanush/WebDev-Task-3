@@ -1,0 +1,5 @@
+node_modules/
+
+src/onfig/config.js
+
+yarn.lock

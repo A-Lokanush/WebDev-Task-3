@@ -19,6 +19,6 @@ app.use("/team", team);
 
 app.use("/poll", poll);
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("Running Server on port " + process.env.PORT);
 });

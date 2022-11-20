@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import config from "../config/config";
 import Axios from "axios";
 
 const PollPage = ({PollInfo,onBack,tokens,tid,isPolled}) => {
@@ -35,7 +36,7 @@ const PollPage = ({PollInfo,onBack,tokens,tid,isPolled}) => {
     
     const pollAdd = () => {
         console.log("In poll ADd")
-        Axios.post("http://localhost:3002/poll/pollAdd",{
+        Axios.post(config.url + config.port + "/poll/pollAdd",{
           accessToken: tokens.at,
           teamid:tid,
           pollname: PollInfo.pollname,
@@ -47,7 +48,7 @@ const PollPage = ({PollInfo,onBack,tokens,tid,isPolled}) => {
         onBack()
     }
     const pollCheck = () => {
-        Axios.post("http://localhost:3002/poll/pollCheck",{
+        Axios.post(config.url + config.port + "/poll/pollCheck",{
           accessToken: tokens.at,
           teamid: tid,
           pollname: PollInfo.pollname,

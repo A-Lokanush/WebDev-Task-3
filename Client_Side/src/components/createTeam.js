@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import config from "../config/config";
 import Axios from "axios";
 
 const CreateTeam = ({tokens,onCreate,onReload}) => {
@@ -20,7 +21,7 @@ const CreateTeam = ({tokens,onCreate,onReload}) => {
             return text;  
           } 
           const userTeamId = makeId();
-          Axios.post("http://localhost:3002/team/teamlist",{
+          Axios.post(config.url + config.port + "/team/teamlist",{
           accessToken: tokens.at,
           teamname: teamInfo.tname,
           teamdes:  teamInfo.tdescription,

@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Axios from "axios";
+import config from "../config/config";
 
 const CreatePolls = ({onSubmit,ttname,tid}) => {
 
@@ -14,7 +15,7 @@ const CreatePolls = ({onSubmit,ttname,tid}) => {
             pollID += letters[Math.floor(Math.random() *86)];
           }
         console.log(" before axios create poll",pollname,question,options[0],options[1],options[2])
-            Axios.post("http://localhost:3002/poll/polllist",{
+            Axios.post(config.url + config.port + "/poll/polllist",{
                 pollname: pollname,
                 question: question,
                 option0: options[0],

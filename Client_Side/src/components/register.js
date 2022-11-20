@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import config from "../config/config";
 import Axios from "axios";
 
 const Register = ({onToggle}) => {
@@ -11,7 +12,7 @@ const Register = ({onToggle}) => {
 
     const register = () => {
         // if(passwordReg === cpasswordReg){
-          Axios.post("http://localhost:3002/auth/register",{
+          Axios.post(config.url + config.port + "/auth/register",{
           username: usernameReg,
           password: passwordReg,
         }).then((response)=> {

@@ -4,7 +4,9 @@ import Polls from "./polls";
 import Pollpage from "./pollPage"
 import Result from "./results"
 import Invitemember from "./inviteMember"
-import Members from "./members"
+import Members from "./members";
+import config from "../config/config";
+
 
 const TeamPage = ({
   onCreatePoll,
@@ -54,7 +56,7 @@ const TeamPage = ({
   // result data{}
   const [option, setOption] = useState("");
   const pollresults = (detail) => {
-    Axios.post("http://localhost:3002/poll/result", {
+    Axios.post(config.url + config.port + "/poll/result", {
       pollname: detail.pollname,
     }).then((response) => {
       setOption(response.data.result);
@@ -66,7 +68,7 @@ const TeamPage = ({
 ////////
 
   const getTeamMemberInfo = () => {
-    Axios.post("http://localhost:3002/team/teamMember",{
+    Axios.post(config.url + config.port + "/team/teamMember",{
       teamid:tid,
     }).then((response) => {
       setTeamMemberInfo(response.data.result);
@@ -75,11 +77,11 @@ const TeamPage = ({
   }
 
   const endedPoll = (detail) => {
-        Axios.post("http://localhost:3002/poll/ended",{
+        Axios.post(config.url + config.port + "/poll/ended",{
         pollname:detail.pollname,
         ended:"ended",
       }).then((response) => {
-        if(response.data.result.length > 0){
+        if(response?.data?.result?.length > 0){
           //setOption(response.data.result);
           setEnded(true)
         }
@@ -89,7 +91,7 @@ const TeamPage = ({
 
 
   const abtPollpage = (detail) => {
-    Axios.post("http://localhost:3002/poll/pollCheck", {
+    Axios.post(config.url + config.port + "/poll/pollCheck", {
       accessToken: tokens.at,
       teamid: tid,
       pollname: detail.pollname,

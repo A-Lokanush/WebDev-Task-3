@@ -1,3 +1,4 @@
+import config from "../config/config";
 import React,{useState} from 'react'
 import Axios from "axios";
 
@@ -17,7 +18,7 @@ const JoinTeam = ({tokens,onReload,onJoin,onBack}) => {
     
     const addJoinTeam = (tn,td)=> {
       const userTeamID = makeId();
-      Axios.post("http://localhost:3002/team/teamlist",{
+      Axios.post(config.url + config.port + "/team/teamlist",{
         accessToken:tokens.at,
         teamname:tn,
         teamdes:td,
@@ -30,7 +31,7 @@ const JoinTeam = ({tokens,onReload,onJoin,onBack}) => {
       onJoin()
     }
     const jointeam = () => {
-          Axios.post("http://localhost:3002/team/jointeamlist",{
+          Axios.post(config.url + config.port + "/team/jointeamlist",{
           teamid: joinInfo,
         }).then((response)=> {
           addJoinTeam(response.data.result[0].teamname,response.data.result[0].teamdes)

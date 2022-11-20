@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { PieChart,Pie,Tooltip, BarChart,ResponsiveContainer,Cell,Bar, XAxis, YAxis, CartesianGrid,Legend} from "recharts"
 import Axios from "axios";
 import Pollanalyses from './pollAnalyses'
+import config from "../config/config";
+
 
 const Results = ({ onBack, PollInfo, admin, end ,option,qop,op,oop}) => {
   const [ended, setEnded] = useState(end);
@@ -31,7 +33,7 @@ const Results = ({ onBack, PollInfo, admin, end ,option,qop,op,oop}) => {
   const ENDPOLL = () => {
     console.log("ENDED");
     setEnded(true);
-    Axios.post("http://localhost:3002/poll/endpoll", {
+    Axios.post(config.url + config.port + "/poll/endpoll", {
       pollname: PollInfo.pollname,
       ended: "ended",
     });

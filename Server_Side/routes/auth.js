@@ -12,7 +12,7 @@ router.post("/register", (req, res) => {
   var Password = req.body.password;
   const password = bcrypt.hashSync(Password, 10);
   console.log(username, password);
-  db.query("INSERT IGNORE INTO USERS (username,password) VALUES (?,?)", [
+  db.query("INSERT IGNORE INTO users (username,password) VALUES (?,?)", [
     username,
     password,
   ]);
@@ -23,7 +23,7 @@ router.post("/login", (req, res) => {
   var password = req.body.password;
   console.log("login", username, password);
   db.query(
-    "SELECT * FROM USERS WHERE username = ? ",
+    "SELECT * FROM users WHERE username = ? ",
     [username],
     (err, result) => {
       if (err) {
